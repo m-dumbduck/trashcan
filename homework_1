@@ -1,7 +1,0 @@
-#include <stdio.h>
-
-void main()
-{
-    double pi = 3.14159265;
-    printf("%.2f\n%.4f\n%.8f\n", pi, pi, pi);
-}
