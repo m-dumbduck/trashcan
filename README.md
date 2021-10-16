@@ -1,1 +1,1 @@
-# trashcan
+# trashcan Ломакин Максим ВМШ
