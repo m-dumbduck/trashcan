@@ -1,0 +1,7 @@
+#include <stdio.h>
+
+void main()
+{
+    printf("%%\n");
+    printf("%ld", sizeof("hello darkness my old friend"));
+}
