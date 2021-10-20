@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+	double a, b, c, D;
+	printf("Введите коэффициенты: ");
+	scanf("%lf %lf %lf", &a, &b, &c);
+	D = b*b - 4 * a * c;
+	if (D < 0) {
+		printf("Два комплексных решения:\n");
+		printf("%lf + %lf * i", -b / (2*a), sqrt(-D) / (2*a));
+		printf("\nи\n");
+		printf("%lf - %lf * i", -b / (2*a), sqrt(-D) / (2*a));
+	} else if (D == 0) {
+		printf("Один корень: %lf", (-b + sqrt(D)) / (2*a));
+	} 
+	else {
+		printf("Два корня: %lf %lf",
+			(-b + sqrt(D)) / (2*a), (-b - sqrt(D)) / (2*a));
+	}
+}
