@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main() {
+	int n, summ = 0;
+	do {
+		printf("Введите число: ");
+		scanf("%d", &n);
+	} while (n <= 0);
+	for (int i = 1; i <= n; ++i) {
+		summ += i*i;
+	}
+	printf("сумма квадратов первых n натуральных чисел: %d\n", summ);
+}
