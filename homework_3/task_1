@@ -2,7 +2,7 @@
 
 int main() {
 	int password, real_pas;
-    printf("Придумайте пароль: ");
+	printf("Придумайте пароль: ");
 	scanf("%d", &real_pas);
 	printf("Введите пароль: ");
 	scanf("%d", &password);
