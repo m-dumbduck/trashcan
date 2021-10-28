@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+int main() {
+	int password, real_pas = 12345;
+    printf("Придумайте пароль: ");
+	scanf("%d", &real_pas);
+	printf("Введите пароль: ");
+	scanf("%d", &password);
+	printf(real_pas == password ? "верно" : "неверный пароль");
+}
