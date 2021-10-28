@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+	int mass[8], elem, swap;
+	for (int i = 0; i < 8; ++i) {
+		printf("Введите элемент массива: ");
+		scanf("%d", &elem);
+		mass[i] = elem;
+	}
+	for (int i = 7; i >= 0; --i) {
+		for (int j = 0; j < i; ++j) {
+			if (mass[j] > mass[j + 1]) {
+				swap = mass[j];
+				mass[j] = mass[j + 1];
+				mass[j + 1] = swap;
+			}
+		}
+	}
+	for (int i = 0; i < 8; ++i) {
+		printf("%d, ", mass[i]);
+	}
+}
