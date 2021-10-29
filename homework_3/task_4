@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    char mass[12][10] = {"january", "february", "march",
+	"april", "may", "june", "july", "august",
+	"september", "october", "november", "december"};
+	int month;
+	do {
+		printf("Введите номер месяца: ");
+		scanf("%d", &month);
+	} while (month < 1 || month > 12);
+	printf("%s\n", mass[month - 1]);
+}
