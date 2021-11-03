@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void main() {
+    char string[1000];
+    size_t len = 0;
+    printf("Type in string:\n");
+    scanf("%999s", string);
+    while (string[len] != '\0') {
+        len++;
+    }
+    printf("string length: %d\n", len);
+}
