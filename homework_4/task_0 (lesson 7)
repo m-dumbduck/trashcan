@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <time.h>
+ 
+void main() {
+    size_t n;
+    int *mass;
+    srand(time(NULL));
+    printf("Type in massif length: ");
+    scanf("%d", &n);
+    mass = (int*) malloc(n * sizeof(int));
+    for (int i = 0; i < n; ++i) {
+        mass[i] = rand();
+    }
+    for (int i = 0; i < n; ++i) {
+        printf("%d ", mass[i]);
+    }
+    free(mass);
+}
