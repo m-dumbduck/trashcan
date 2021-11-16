@@ -1,0 +1,131 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+void main(){
+    const int N = 110;
+    const int M = 110;
+    const int L = 110;
+    const int H = 110;
+
+    clock_t begin, end;
+    double time_spent;
+
+
+    begin = clock();
+    // ===============================
+    int**** pp1;
+    pp1 = (int****)malloc(N * sizeof(int***));
+    for (int i = 0; i < N; i++){
+        pp1[i] = (int***)malloc(M * sizeof(int**));
+        for (int j = 0; j < M; j++) {
+            pp1[i][j] = (int**)malloc(L * sizeof(int*));
+            for (int h = 0; h < L; h++) {
+                pp1[i][j][h] = (int*)malloc(H * sizeof(int));
+            }
+        }
+    }// pp1[i][j][h][l]
+
+    pp1[109][109][109][109] = 100;
+    printf("%d\n", pp1[109][109][109][109]);
+
+    for (int i = 0; i < N; i++){
+        for (int j = 0; j < M; j++) {
+            for (int h = 0; h < L; h++) {
+                free(pp1[i][j][h]);
+            }
+            free(pp1[i][j]);
+        }
+        free(pp1[i]);
+    }
+    free(pp1);
+    
+    end = clock();
+    time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+    printf("1: %.8lf\n", time_spent);
+
+
+
+
+    begin = clock();
+    // ===============================
+    int* p2;
+    p2 = (int*)malloc(N * M * L * H * sizeof(int));// p2[i*N + j*M + h*L + l]
+
+    p2[109 * N + 109 * M + 109 * L + 109 * H] = 100;
+    printf("%d\n", p2[109 * N * M * L + 109 * M * L + 109 * L + 109 * H]);
+
+    free(p2);
+    end = clock();
+    time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+    printf("2: %.8lf\n", time_spent);
+
+
+
+
+
+
+
+
+    begin = clock();
+    // ===============================
+    int**** pppp3;
+    int*** ppp3;
+    int** pp3;
+    int* p3;
+    pppp3 = (int****)malloc(N * sizeof(int***));
+    ppp3 = (int***)malloc(N * M * sizeof(int**));
+    pp3 = (int**)malloc(N * M * L * sizeof(int*));
+    p3 = (int*)malloc(N * M * L * H * sizeof(int));
+
+    for (int i = 0; i < N; i++) {
+        pppp3[i] = ppp3 + i * M;
+        for (int j = 0; j < M; j++) {
+            pppp3[i][j] = pp3 + j * L;
+            for (int k = 0; k < L; k++) {
+                pppp3[i][j][k] = p3 + k * H;
+            }
+        }
+    }// pppp3[i][j][k][l]
+
+    pppp3[109][109][109][109] = 100;
+    printf("%d\n", pppp3[109][109][109][109]);
+
+    free(pppp3);
+    free(ppp3);
+    free(pp3);
+    free(p3);
+    end = clock();
+    time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+    printf("3: %.8lf\n", time_spent);
+
+
+
+    begin = clock();
+    // ===============================
+
+    int**** pppp4;
+    pppp4 = (int****)malloc(N * sizeof(int***) + N * M * sizeof(int**) + N * M * L * sizeof(int*) + N * M * L * H * sizeof(int));
+    pppp4[0] = (int***)(pppp4 + N);
+
+    for (int i = 0; i < N; i++) {
+        pppp4[i] = pppp4[0] + i * M;
+        for (int j = 0; j < M; j++) {
+            pppp4[i][j] = pppp4[0] + i * M + j * N * L;
+            for (int k = 0; k < L; k++) {
+                pppp4[i][j][k] = pppp4[0] + i * M + j * L * N + N * M * k * H;
+            }
+        }
+    }
+
+    pppp4[109][109][109][109] = 100;
+    printf("%d\n", pppp4[109][109][109][109]);
+    free(pppp4);
+
+    end = clock();
+    time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+    printf("4: %.8f\n", time_spent);
+}
+
+
