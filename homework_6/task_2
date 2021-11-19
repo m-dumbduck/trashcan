@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+
+int len(const char *string) {
+    unsigned counter=0;
+    while (string[counter] != '\0') {
+        counter++;
+    }
+    return counter;
+}
+
+void main(){
+    char string[128];
+    scanf("%127s", string);
+    printf("func from lib: %d\n", strlen(string));
+    printf("my func: %d\n", len(string));
+}
