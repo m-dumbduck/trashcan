@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <time.h>
+#include <conio.h>
+#include <stdlib.h>
+
+
+char generate_rand_in_mass(float * mass, unsigned N) {
+    for (int i = 0; i < N; i++) {
+        mass[i] = rand();
+    }
+    return N % 2 == 0 ? 'A' : 'C';
+}
+
+void main(){
+    float mass_1[9], mass_2[10];
+    unsigned N1 = 9, N2 = 10;
+    printf("%c\n", generate_rand_in_mass(mass_1, N1));
+    printf("%c\n", generate_rand_in_mass(mass_2, N2));
+    for (int i = 0; i < N1; i++) {
+        printf("%f\n", mass_1[i]);
+    }
+    printf("--------------------------------------------\n");
+    for (int i = 0; i < N2; i++) {
+        printf("%f\n", mass_2[i]);
+    }
+}
