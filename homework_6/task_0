@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+
+double func(double a) {
+    return a * a * a;
+}
+
+void main(){
+    double number;
+    scanf("%lf", &number);
+    printf("%lf", func(number));
+}
