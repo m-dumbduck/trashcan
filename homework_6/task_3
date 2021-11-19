@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <time.h>
+#include <conio.h>
+#include <stdlib.h>
+
+#define N 3
+
+float generate_rand() {
+    return N * (float)rand() / RAND_MAX;
+}
+
+void main(){
+    srand(time(NULL));
+    for (int i = 0; i < 5; i++) {
+        printf("%f\n", generate_rand());
+    }
+}
