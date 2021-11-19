@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <time.h>
+#include <conio.h>
+#include <stdlib.h>
+
+
+float generate_rand(const float min, const float max) {
+    return (max - min) * (float)rand() / RAND_MAX + min;
+}
+
+void main(){
+    float mass[100], min, max;
+    printf("type in minimum: ");
+    scanf("%f", &min);
+    printf("type in maximum: ");
+    scanf("%f", &max);
+    for (int i = 0; i < 100; i++) {
+        mass[i] = generate_rand(min, max);
+    }
+    for (int i = 0; i < 100; i++) {
+        printf("%f\n", mass[i]);
+    }
+}
