@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+
+void main() {
+    FILE *file;
+    char string[128];
+
+    file = fopen("./file.txt", "w+t");
+    if (file == NULL) {
+        printf("ERROR: cannot open the file");
+    } else {
+        gets(string);
+        fprintf(file, "%s", string);
+        fclose(file);
+
+        file = fopen("C:/Users/79197/Desktop/file.txt", "rt");
+        if (file == NULL) {
+            printf("ERROR: cannot open the file");
+        } else {
+            fgets(string, 127, file);
+            printf("%s", string);
+            fclose(file);
+        }
+    }
+}
