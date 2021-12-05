@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+
+void main() {
+    FILE *file;
+    char string[128];
+    int number;
+
+    file = fopen("./file.txt", "w+t");
+    if (file == NULL) {
+        printf("ERROR: cannot open the file");
+    } else {
+        gets(string);
+        for (int i = 0; i < 128; i++) {
+            if (string[i] == '\0') {
+                break;
+            }
+            number = (int)string[i];
+            if (number >= 97 && number <= 122) {
+                number = 96 + (number - 96 + 3) % 26;
+            }
+            if (number >= 48 && number <= 57) {
+                number = 47 + (number - 47 + 3) % 10;
+            }
+            fprintf(file, "%c", (char)number);
+        }
+        fclose(file);
+    }
+}
